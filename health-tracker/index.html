@@ -1,0 +1,84 @@
+<!-- Project Overview
+
+It's important that web developers have experience with multiple organizational
+libraries and frameworks. Using Backbone, you will develop a single page app
+that tracks the user's calorie intake, and optionally, other health-related
+metrics. Typing food names into the search field will display a list of
+matching foods as provided by the health API. Users will be able to select
+an item from the list, and the item will be added to the list of foods the user
+is tracking. The total calorie count will also update to reflect the new daily
+total.
+
+1.Write code required to get a project started.
+2.Implement search bar functionality to the application.
+3.Write code required to query a health API when the user searches,
+  and return the results in a list (Nutritionix has a good one).
+4.Add functionality to add an item to the data store when clicked.
+5.Write code required to show the items in the data store, and to display the
+  total number of calories.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Tracker</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <section class="healthtrackerapp">
+    <div id="search-bar">
+      <input id="search-input" type="search" placeholder="输入食物名称">
+      <div id="search-icon"><i class="fa fa-search"></i></div>
+    </div>
+    <header>
+      <h1>Health Tracker</h1>
+    </header>
+    <section id="main">
+      <ul id="food-list"></ul>
+      <label for="food-list" id='totals'>
+        <span>Totals intake calories: </span>
+        <span id='totals-calories'>0</span>
+      </label>
+      <ul id="search-list"></ul>
+    </section>
+    <footer class="footer"></footer>
+  </section>
+  <div class="info">
+    <p>
+      Written by <a href="https://github.com/PepperPapa">PepperPapa</a>
+    </p>
+  </div>
+  <!-- index.html -->
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <div>
+        <span class="fd-name"><%= name %></span>
+        <span class="fd-calories"><%= calories %></span>
+      </div>
+      <button class="add"></button>
+    </div>
+  </script>
+  <!-- index.html -->
+  <script type="text/template" id="intake-template">
+    <div class="view">
+      <div>
+        <span class="intake-name"><%= name %></span>
+        <span class="intake-calories"><%= calories %></span>
+        <span class="intake-date"><%= date %></span>
+      </div>
+      <button class="remove"></button>
+    </div>
+  </script>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/underscore-min.js"></script>
+  <script src="js/lib/backbone-min.js"></script>
+  <script src="js/lib/backbone.localStorage.js"></script>
+
+  <script src="js/models/food.js"></script>
+  <script src="js/views/app.js"></script>
+  <script src="js/views/food.js"></script>
+  <script src="js/collections/foods.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
